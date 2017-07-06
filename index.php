@@ -70,7 +70,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>PHP Calendar</title>
+    <title>PHP Calendar test</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
