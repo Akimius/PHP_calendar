@@ -81,13 +81,13 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     <br>
     <table class="table table-bordered">
         <tr>
-            <th>Воск</th>
+            <th>Вос</th>
             <th>Пон</th>
             <th>Втор</th>
             <th>Сред</th>
             <th>Четв</th>
             <th>Пятн</th>
-            <th>Субб</th>
+            <th>Суб</th>
         </tr>
         <?php
         foreach ($weeks as $week) {
