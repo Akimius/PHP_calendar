@@ -1,6 +1,6 @@
 <?php
 // Set your timezone!!
-date_default_timezone_set('Ukraine/Kiev'); // Set Ukrainian time
+date_default_timezone_set('Europe/Kiev'); // Set Ukrainian time
 
 // Get prev & next month
 if (isset($_GET['ym'])) {
