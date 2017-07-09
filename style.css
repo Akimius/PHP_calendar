@@ -1,7 +1,6 @@
-
 .container {
     font-family: 'Noto Sans', sans-serif;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 th {
     height: 30px;
@@ -10,16 +9,27 @@ th {
 }
 td {
     height: 70px;
+    background-color: #fff;
 }
+td:hover {
+    background-color: #eee;
+}
+
 .today {
-    background: #ff8e63;
+    background: #72d991;
 }
-th:nth-of-type(7),td:nth-of-type(7) {
-    color: blue;
-}
-th:nth-of-type(6),td:nth-of-type(6) {
+th:nth-of-type(7),td:nth-of-type(7), th:nth-of-type(6),td:nth-of-type(6) {
     color: red;
+    font-weight: bolder;
 }
+
+
+.addform {
+    margin-bottom: 30px;
+}
+
+
+
 
 /*test comments*/
 

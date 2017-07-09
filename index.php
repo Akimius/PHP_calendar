@@ -7,9 +7,8 @@ if (isset($_GET['ym'])) {
     $ym = $_GET['ym'];
 } else {
     // This month
-    $ym = date('Y-m');
+    $ym = date('Y-m'); // Getting the current month
 }
-
 // Check format
 $timestamp = strtotime($ym,"-01");
 if ($timestamp === false) {
@@ -22,15 +21,18 @@ $today = date('Y-m-j', time());
 // For H3 title
 $html_title = date('Y / m', $timestamp);
 
-// Create prev & next month link     mktime(hour,minute,second,month,day,year)
-$prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
-$next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+// Create prev & next month link mktime(hour,minute,second,month,day,year)
+$prev =
+    date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+$next =
+    date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
 
 // Number of days in the month
 $day_count = date('t', $timestamp);
 
 // 0:Sun 1:Mon 2:Tue ...
-$str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
+$str =
+    date('w', mktime(0, 0, 0, date('m', $timestamp), 0, date('Y', $timestamp)));
 
 // Create Calendar!!
 $weeks = array();
@@ -55,7 +57,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
         if($day == $day_count) {
             // Add empty cell
-            $week .= str_repeat('<td></td>', 6 - ($str % 7));
+            $week .= str_repeat('<td></td>', 6 - ($str % 7)); //  Returns input repeated multiplier times.
         }
 
         $weeks[] = '<tr>'.$week.'</tr>';
@@ -70,24 +72,33 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>PHP Calendar test</title>
+    <title>PHP Calendar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <div class="container">
     <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a> <?php echo $html_title; ?>
         <a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
     <br>
+
+
+    <form class="addform" method="post" action="append_json_data.php">
+        <input type="submit" name="submit" value="Add event" class="btn btn-info" /><br />
+    </form>
+
     <table class="table table-bordered">
         <tr>
-            <th>Вос</th>
+
             <th>Пон</th>
             <th>Втор</th>
             <th>Сред</th>
             <th>Четв</th>
             <th>Пятн</th>
             <th>Суб</th>
+
+            <th>Вос</th>
         </tr>
         <?php
         foreach ($weeks as $week) {
